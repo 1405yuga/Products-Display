@@ -1,13 +1,18 @@
 package com.example.productsdisplay.adapter
 
-import android.widget.ListAdapter
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.productsdisplay.databinding.ListViewProductBinding
 import com.example.productsdisplay.network.Product
 
+
 class ProductsAdpater : ListAdapter<Product,ProductsAdpater.ProductsViewHolder>() {
-    class ProductsViewHolder (private var binding:ListViewProductBinding):RecyclerView.ViewHolder(binding.root){
-        fun bind(product : Product){
+
+    class ProductsViewHolder(private var binding: ListViewProductBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(product: Product) {
             binding.name.text = product.name
             binding.price.text = product.price
             binding.brand.text = product.brand
@@ -15,5 +20,14 @@ class ProductsAdpater : ListAdapter<Product,ProductsAdpater.ProductsViewHolder>(
             binding.userType.text = product.category.usertype.usertype
         }
     }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
+        return ProductsViewHolder(ListViewProductBinding.inflate(LayoutInflater.from(parent.context)))
+    }
+
+    override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
+        TODO("Not yet implemented")
+    }
+
 
 }
