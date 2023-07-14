@@ -26,7 +26,7 @@ class ProductsAdpater : ListAdapter<Product,ProductsAdpater.ProductsViewHolder>(
     }
 
     override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bind(getItem(position))
     }
 
 
