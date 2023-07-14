@@ -1,6 +1,7 @@
 package com.example.productsdisplay.network
 
 data class Product(
+    val id : Int,
     val name : String,
     val price : String,
     val brand : String,
