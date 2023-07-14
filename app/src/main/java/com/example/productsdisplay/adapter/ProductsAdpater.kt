@@ -9,17 +9,7 @@ import com.example.productsdisplay.databinding.ListViewProductBinding
 import com.example.productsdisplay.network.Product
 
 
-class ProductsAdpater : ListAdapter<Product,ProductsAdpater.ProductsViewHolder>(DiffCallBack) {
-    object DiffCallBack : DiffUtil.ItemCallback<Product>(){
-        override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
-            return oldItem.id == newItem.id
-        }
-
-        override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
-            return oldItem.name == newItem.name
-        }
-
-    }
+class ProductsAdpater(var products : List<Product>) : RecyclerView.Adapter<ProductsAdpater.ProductsViewHolder>() {
 
     class ProductsViewHolder(private var binding: ListViewProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -36,8 +26,12 @@ class ProductsAdpater : ListAdapter<Product,ProductsAdpater.ProductsViewHolder>(
         return ProductsViewHolder(ListViewProductBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
+    override fun getItemCount(): Int {
+        return products.size
+    }
+
     override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(products.get(position))
     }
 
 

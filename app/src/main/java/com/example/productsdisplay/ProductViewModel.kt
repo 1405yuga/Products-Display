@@ -8,14 +8,17 @@ import androidx.lifecycle.viewModelScope
 import com.example.productsdisplay.network.ProductResponse
 import com.example.productsdisplay.network.ProductsApi
 import kotlinx.coroutines.launch
-const val TAG = "ProductViewModel"
+private const val TAG = "ProductViewModel"
 
 class ProductViewModel : ViewModel(){
 
     private val _products = MutableLiveData<ProductResponse>()
     val products : LiveData<ProductResponse> = _products
 
-    fun getProducts(){
+    init {
+        getProducts()
+    }
+    private fun getProducts(){
         viewModelScope.launch {
             try{
                _products.value = ProductsApi.retrofitService.getProductsList()
