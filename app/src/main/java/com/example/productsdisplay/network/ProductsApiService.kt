@@ -25,7 +25,7 @@ interface ProductsApiService {
 
     //suspend function to get data
     @GET("productsList")
-    suspend fun getProductsList() : List<Product>
+    suspend fun getProductsList() : ProductResponse
 }
 
 object ProductsApi{
