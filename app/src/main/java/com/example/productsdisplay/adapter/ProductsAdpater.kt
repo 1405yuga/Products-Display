@@ -23,7 +23,7 @@ class ProductsAdpater(var products : List<Product>) : RecyclerView.Adapter<Produ
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
-        return ProductsViewHolder(ListViewProductBinding.inflate(LayoutInflater.from(parent.context)))
+        return ProductsViewHolder(ListViewProductBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 
     override fun getItemCount(): Int {
