@@ -7,3 +7,12 @@ data class Product(
     val category : Category
 ) {
 }
+
+data class Category (
+    val usertype: UserType,
+    val category: String
+){
+}
+
+data class UserType(val usertype:String) {
+}
