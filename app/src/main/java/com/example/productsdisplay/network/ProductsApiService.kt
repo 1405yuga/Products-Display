@@ -27,3 +27,9 @@ interface ProductsApiService {
     @GET("productsList")
     suspend fun getProductsList() : List<Product>
 }
+
+object ProductsApi{
+    val retrofitService : ProductsApiService by lazy {
+        retrofit.create(ProductsApiService::class.java)
+    }
+}
